@@ -174,10 +174,10 @@
             </objects>
             <point key="canvasLocation" x="-355.07246376811599" y="42.857142857142854"/>
         </scene>
-        <!--View Controller-->
+        <!--VotingVC-->
         <scene sceneID="DOK-ZN-JCK">
             <objects>
-                <viewController id="haF-Js-YhT" sceneMemberID="viewController">
+                <viewController id="haF-Js-YhT" customClass="VotingVC" customModule="Goonz_Gamez" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PpD-cc-cWZ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -242,6 +242,11 @@
                         <viewLayoutGuide key="safeArea" id="kbc-Pd-hju"/>
                     </view>
                     <navigationItem key="navigationItem" id="guy-7Q-ncN"/>
+                    <connections>
+                        <outlet property="answerCollection" destination="GKn-ME-L3b" id="eZr-58-CDG"/>
+                        <outlet property="progressContainer" destination="mNS-R5-srD" id="JSD-vn-ZJd"/>
+                        <outlet property="progressView" destination="aV4-Z5-xgh" id="3vo-cg-F9N"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JSE-bF-dS2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

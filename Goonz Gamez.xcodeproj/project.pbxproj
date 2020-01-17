@@ -22,6 +22,8 @@
 		BF4F38F623D150CD00C77AE6 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4F38F523D150CD00C77AE6 /* Extensions.swift */; };
 		BF4F38F823D215E100C77AE6 /* CollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4F38F723D215E100C77AE6 /* CollectionViewFlowLayout.swift */; };
 		BF4F38FA23D21F6000C77AE6 /* VotingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4F38F923D21F6000C77AE6 /* VotingVC.swift */; };
+		BF4F38FC23D2353600C77AE6 /* AnswerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF4F38FB23D2353600C77AE6 /* AnswerCell.xib */; };
+		BF4F38FE23D2354800C77AE6 /* AnswerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4F38FD23D2354800C77AE6 /* AnswerCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,8 @@
 		BF4F38F523D150CD00C77AE6 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		BF4F38F723D215E100C77AE6 /* CollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 		BF4F38F923D21F6000C77AE6 /* VotingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VotingVC.swift; sourceTree = "<group>"; };
+		BF4F38FB23D2353600C77AE6 /* AnswerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AnswerCell.xib; sourceTree = "<group>"; };
+		BF4F38FD23D2354800C77AE6 /* AnswerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswerCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,9 +98,11 @@
 				BF4F38F123D12F3600C77AE6 /* Question.swift */,
 				BF0AC64C23D114D900842E0C /* PromptVC.swift */,
 				BF4F38F323D1367900C77AE6 /* WaitingLobbyVC.swift */,
-				BF4F38F923D21F6000C77AE6 /* VotingVC.swift */,
 				BF0AC64823D1104F00842E0C /* WaitingCell.swift */,
 				BF0AC64923D1104F00842E0C /* WaitingCell.xib */,
+				BF4F38F923D21F6000C77AE6 /* VotingVC.swift */,
+				BF4F38FD23D2354800C77AE6 /* AnswerCell.swift */,
+				BF4F38FB23D2353600C77AE6 /* AnswerCell.xib */,
 				BF4F38F723D215E100C77AE6 /* CollectionViewFlowLayout.swift */,
 			);
 			path = Answerz;
@@ -161,6 +167,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF0AC63F23D0DA2900842E0C /* LaunchScreen.storyboard in Resources */,
+				BF4F38FC23D2353600C77AE6 /* AnswerCell.xib in Resources */,
 				BF0AC63C23D0DA2900842E0C /* Assets.xcassets in Resources */,
 				BF0AC63A23D0DA2500842E0C /* Main.storyboard in Resources */,
 				BF0AC64723D0DA7700842E0C /* Answerz.storyboard in Resources */,
@@ -178,6 +185,7 @@
 				BF4F38F823D215E100C77AE6 /* CollectionViewFlowLayout.swift in Sources */,
 				BF0AC63723D0DA2500842E0C /* ViewController.swift in Sources */,
 				BF4F38F423D1367900C77AE6 /* WaitingLobbyVC.swift in Sources */,
+				BF4F38FE23D2354800C77AE6 /* AnswerCell.swift in Sources */,
 				BF0AC63323D0DA2500842E0C /* AppDelegate.swift in Sources */,
 				BF4F38F623D150CD00C77AE6 /* Extensions.swift in Sources */,
 				BF0AC63523D0DA2500842E0C /* SceneDelegate.swift in Sources */,

@@ -9,7 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="WaitingCell" rowHeight="24" id="KGk-i7-Jjw" customClass="WaitingCell" customModule="Goonz_Gamez" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AnswerCell" rowHeight="24" id="KGk-i7-Jjw" customClass="AnswerCell" customModule="Goonz_Gamez" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="287" height="60"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM" customClass="UITableViewCell">
@@ -21,17 +21,11 @@
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="60" id="Qky-74-Zac"/>
+                            <constraint firstAttribute="width" constant="287" id="RxR-fm-9hM"/>
                         </constraints>
                     </view>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tIF-ra-zsr">
-                        <rect key="frame" x="5" y="5" width="50" height="50"/>
-                        <color key="backgroundColor" red="0.66367428559999997" green="0.65467319960000003" blue="0.8789459074" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="width" secondItem="tIF-ra-zsr" secondAttribute="height" multiplier="1:1" id="bBl-7E-5Jg"/>
-                        </constraints>
-                    </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kim Jong Youn" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4gk-3l-2Rp">
-                        <rect key="frame" x="65" y="19.5" width="122" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="small asian girls." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4gk-3l-2Rp">
+                        <rect key="frame" x="10" y="10" width="267" height="40"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
@@ -40,22 +34,19 @@
                 <color key="backgroundColor" red="0.16518184011250847" green="0.16257141286249283" blue="0.29427744289340096" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 <constraints>
                     <constraint firstItem="Gi2-CX-CHm" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="46I-Cn-jWc"/>
-                    <constraint firstAttribute="bottom" secondItem="tIF-ra-zsr" secondAttribute="bottom" constant="5" id="4se-3N-VPV"/>
-                    <constraint firstItem="tIF-ra-zsr" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="CjS-5S-Zbp"/>
-                    <constraint firstItem="tIF-ra-zsr" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="IP6-OX-Ske"/>
-                    <constraint firstItem="4gk-3l-2Rp" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="IkB-Dn-WHw"/>
+                    <constraint firstAttribute="bottom" secondItem="4gk-3l-2Rp" secondAttribute="bottom" constant="10" id="6j0-EC-w7i"/>
+                    <constraint firstAttribute="trailing" secondItem="4gk-3l-2Rp" secondAttribute="trailing" constant="10" id="BTv-6c-Suq"/>
                     <constraint firstItem="Gi2-CX-CHm" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Own-s0-UyE"/>
                     <constraint firstAttribute="bottom" secondItem="Gi2-CX-CHm" secondAttribute="bottom" id="QSl-iY-5Of"/>
-                    <constraint firstItem="tIF-ra-zsr" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="YzF-zm-LfX"/>
-                    <constraint firstItem="4gk-3l-2Rp" firstAttribute="leading" secondItem="tIF-ra-zsr" secondAttribute="trailing" constant="10" id="ePE-bd-PlT"/>
                     <constraint firstAttribute="trailing" secondItem="Gi2-CX-CHm" secondAttribute="trailing" id="j7o-XJ-kri"/>
+                    <constraint firstItem="4gk-3l-2Rp" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="nhI-M5-zSv"/>
+                    <constraint firstItem="4gk-3l-2Rp" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="wv4-9b-OpL"/>
                 </constraints>
             </tableViewCellContentView>
-            <accessibility key="accessibilityConfiguration" identifier="WaitingCell"/>
+            <accessibility key="accessibilityConfiguration" label="AnswerCell"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="nameLabel" destination="4gk-3l-2Rp" id="Rqx-W4-oad"/>
-                <outlet property="pictureView" destination="tIF-ra-zsr" id="T7U-wW-bou"/>
+                <outlet property="answerLabel" destination="4gk-3l-2Rp" id="7WI-G3-2zd"/>
             </connections>
             <point key="canvasLocation" x="145.6521739130435" y="129.91071428571428"/>
         </tableViewCell>
