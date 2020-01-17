@@ -21,6 +21,7 @@
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="60" id="Qky-74-Zac"/>
+                            <constraint firstAttribute="width" constant="287" id="RxR-fm-9hM"/>
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tIF-ra-zsr">
@@ -42,6 +43,7 @@
                     <constraint firstItem="Gi2-CX-CHm" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="46I-Cn-jWc"/>
                     <constraint firstAttribute="bottom" secondItem="tIF-ra-zsr" secondAttribute="bottom" constant="5" id="4se-3N-VPV"/>
                     <constraint firstItem="tIF-ra-zsr" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="CjS-5S-Zbp"/>
+                    <constraint firstItem="tIF-ra-zsr" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="IP6-OX-Ske"/>
                     <constraint firstItem="4gk-3l-2Rp" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="IkB-Dn-WHw"/>
                     <constraint firstItem="Gi2-CX-CHm" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Own-s0-UyE"/>
                     <constraint firstAttribute="bottom" secondItem="Gi2-CX-CHm" secondAttribute="bottom" id="QSl-iY-5Of"/>

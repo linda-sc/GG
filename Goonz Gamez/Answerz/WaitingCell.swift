@@ -16,7 +16,7 @@ class WaitingCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        pictureView.layer.cornerRadius = 25
+        pictureView.layer.cornerRadius = pictureView.frame.size.width/2
         pictureView.clipsToBounds = true
     }
     

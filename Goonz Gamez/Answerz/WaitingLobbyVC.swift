@@ -75,9 +75,10 @@ class WaitingLobbyVC: UIViewController, UICollectionViewDelegate, UICollectionVi
 
        
     private func setStructure(for cell: UICollectionViewCell) {
-           cell.layer.borderWidth = 20
-           cell.layer.borderColor = UIColor.clear.cgColor
-           cell.layer.cornerRadius = 15
+        cell.layer.borderWidth = 20
+        cell.layer.borderColor = UIColor.clear.cgColor
+        cell.layer.cornerRadius = 15
+        cell.clipsToBounds = true
     }
     
     // MARK: - Checking to see if everyone is done
@@ -104,8 +105,8 @@ class WaitingLobbyVC: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = view.bounds.width - 5
-        let height: CGFloat = 40
+        let width = view.bounds.width - 60
+        let height: CGFloat = 60
         return CGSize(width: width, height: height)
         }
 }
