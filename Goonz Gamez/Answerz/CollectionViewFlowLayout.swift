@@ -19,21 +19,21 @@ class CollectionViewFlowLayout: UICollectionViewFlowLayout {
         //return true
     }
     
-    override func initialLayoutAttributesForAppearingItem(at itemIndexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
-        let attribute = super.initialLayoutAttributesForAppearingItem(at: itemIndexPath as IndexPath)
-        attribute?.transform = (attribute?.transform)!.scaledBy(x: 1, y: 0)
-        attribute?.alpha = 1
-        return attribute
-    }
-    
-    
-    override func finalLayoutAttributesForDisappearingItem(at itemIndexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
-        let attribute = super.finalLayoutAttributesForDisappearingItem(at: itemIndexPath as IndexPath)
-        attribute?.transform = (attribute?.transform)!.translatedBy(x: 0, y:0)
-        attribute?.transform = (attribute?.transform)!.scaledBy(x: 1, y: 0)
-        attribute?.alpha = 1
-        return attribute
-    }
+//    override func initialLayoutAttributesForAppearingItem(at itemIndexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
+//        let attribute = super.initialLayoutAttributesForAppearingItem(at: itemIndexPath as IndexPath)
+//        //attribute?.transform = (attribute?.transform)!.scaledBy(x: 1, y: 0)
+//        attribute?.alpha = 1
+//        return attribute
+//    }
+//
+//
+//    override func finalLayoutAttributesForDisappearingItem(at itemIndexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
+//        let attribute = super.finalLayoutAttributesForDisappearingItem(at: itemIndexPath as IndexPath)
+//        attribute?.transform = (attribute?.transform)!.translatedBy(x: 0, y:0)
+//        attribute?.transform = (attribute?.transform)!.scaledBy(x: 1, y: 0)
+//        attribute?.alpha = 1
+//        return attribute
+//    }
 }
 
 extension UICollectionViewCell {
