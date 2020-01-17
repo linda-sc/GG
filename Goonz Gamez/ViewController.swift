@@ -10,11 +10,10 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
+    override func viewWillAppear(_ animated: Bool) {
+        self.performSegue(withIdentifier: "GoToAnswerzStoryboard", sender: self)
+              print("Going to Answerz storyboard.")
     }
-
 
 }
 
