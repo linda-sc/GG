@@ -20,6 +20,7 @@
 		BF4F38F223D12F3600C77AE6 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4F38F123D12F3600C77AE6 /* Question.swift */; };
 		BF4F38F423D1367900C77AE6 /* WaitingLobby1VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4F38F323D1367900C77AE6 /* WaitingLobby1VC.swift */; };
 		BF4F38F623D150CD00C77AE6 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4F38F523D150CD00C77AE6 /* Extensions.swift */; };
+		BF4F38F823D215E100C77AE6 /* CollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4F38F723D215E100C77AE6 /* CollectionViewFlowLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		BF4F38F123D12F3600C77AE6 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		BF4F38F323D1367900C77AE6 /* WaitingLobby1VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingLobby1VC.swift; sourceTree = "<group>"; };
 		BF4F38F523D150CD00C77AE6 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		BF4F38F723D215E100C77AE6 /* CollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 				BF4F38F323D1367900C77AE6 /* WaitingLobby1VC.swift */,
 				BF0AC64823D1104F00842E0C /* WaitingCell.swift */,
 				BF0AC64923D1104F00842E0C /* WaitingCell.xib */,
+				BF4F38F723D215E100C77AE6 /* CollectionViewFlowLayout.swift */,
 			);
 			path = Answerz;
 			sourceTree = "<group>";
@@ -169,6 +172,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF4F38F823D215E100C77AE6 /* CollectionViewFlowLayout.swift in Sources */,
 				BF0AC63723D0DA2500842E0C /* ViewController.swift in Sources */,
 				BF4F38F423D1367900C77AE6 /* WaitingLobby1VC.swift in Sources */,
 				BF0AC63323D0DA2500842E0C /* AppDelegate.swift in Sources */,

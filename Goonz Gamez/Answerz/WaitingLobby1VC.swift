@@ -8,9 +8,10 @@
 
 import UIKit
 
-class WaitingLobby1VC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class WaitingLobby1VC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
-    @IBOutlet weak var waitingTable: UITableView!
+    @IBOutlet weak var waitingCollection: UICollectionView!
+
     var waitingList = Question().goonz
     var numberOfPeople = Question().goonz.count
     
@@ -22,15 +23,31 @@ class WaitingLobby1VC: UIViewController, UITableViewDelegate, UITableViewDataSou
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        progressContainer.layer.cornerRadius = 20
-        waitingTable.delegate = self
-        waitingTable.dataSource = self
-        waitingTable.register(UINib(nibName: "WaitingCell", bundle: nil), forCellReuseIdentifier: "WaitingCell")
+        progressContainer.layer.cornerRadius = 5
+        waitingCollection.delegate = self
+        waitingCollection.dataSource = self
+        waitingCollection.register(UINib(nibName: "WaitingCell", bundle: nil), forCellWithReuseIdentifier: "WaitingCell")
         
-        //Remove random people
-        timer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(triggerAction), userInfo: nil, repeats: true)
+        
+        //Set estimated item size
+        if let flow = waitingCollection.collectionViewLayout as? UICollectionViewFlowLayout {
+            flow.estimatedItemSize = CGSize(width: 1, height: 1)
+        }
+        
+        //Disappearing cells
+        let flowLayout = BouncyLayout(style: .prominent)
+        //let flowLayout = CollectionViewFlowLayout()
+        //let flowLayout = BouncyLayout(style: .crazy)
+        self.waitingCollection.setCollectionViewLayout(flowLayout, animated: true)
+    
+//        //Remove random people
+//        timer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(triggerAction), userInfo: nil, repeats: true)
+        
     }
     
+    @IBAction func screenTapped(_ sender: Any) {
+        triggerAction()
+    }
     
     @objc func triggerAction(){
         print("Removing random person")
@@ -43,31 +60,41 @@ class WaitingLobby1VC: UIViewController, UITableViewDelegate, UITableViewDataSou
     func removeFromWaitTable(row: Int) {
         self.waitingList.remove(at: row)
         let myNSIndexPath = [NSIndexPath(row: row, section: 0)]
-        self.waitingTable.deleteRows(at: myNSIndexPath as [IndexPath], with:UITableView.RowAnimation.fade)
+        self.waitingCollection.deleteItems(at: myNSIndexPath as [IndexPath])
         
         let progress: Float = Float((numberOfPeople - waitingList.count)/numberOfPeople)
+        print("Progess: \(progress)")
            progressView.setProgress(progress, animated: true)
     }
     
 
-    
-    // MARK: - Table view data source
-
-    func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
-        
+       
+    private func setStructure(for cell: UICollectionViewCell) {
+           cell.layer.borderWidth = 20
+           cell.layer.borderColor = UIColor.clear.cgColor
+           cell.layer.cornerRadius = 15
     }
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
+    
+    
+    // MARK: - Collection view data source
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.waitingList.count
+
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = waitingTable.dequeueReusableCell(withIdentifier: "WaitingCell", for: indexPath) as! WaitingCell
-        cell.nameLabel.text = Question().goonz[indexPath.row]
-        return cell
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = waitingCollection.dequeueReusableCell(withReuseIdentifier: "WaitingCell", for: indexPath) as! WaitingCell
+               self.setStructure(for: cell)
+               cell.nameLabel.text = Question().goonz[indexPath.row]
+               return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = view.bounds.width - 5
+        let height: CGFloat = 40
+        return CGSize(width: width, height: height)
+        }
+
     
 }

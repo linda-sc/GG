@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -93,10 +94,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="40" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zYE-ig-Ltq">
-                                <rect key="frame" x="20" y="153" width="374" height="709"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                            </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Waiting for these slow people." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tfq-0y-QbD">
                                 <rect key="frame" x="30" y="84" width="354" height="24"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
@@ -120,30 +117,59 @@
                                     <constraint firstAttribute="height" constant="15" id="qVq-6o-9o2"/>
                                 </constraints>
                             </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="iyL-U0-erH">
+                                <rect key="frame" x="30" y="143" width="354" height="719"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="wd5-KU-rYq">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="TkQ-ND-gdi">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="oMS-ak-lbc">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" red="0.12116555124521255" green="0.11924301832914352" blue="0.21459007263183594" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="1MG-Uc-UtF" firstAttribute="leading" secondItem="raj-6O-K5z" secondAttribute="leading" constant="50" id="05S-r8-XH2"/>
+                            <constraint firstItem="iyL-U0-erH" firstAttribute="leading" secondItem="raj-6O-K5z" secondAttribute="leading" constant="30" id="19e-Yv-Rgt"/>
                             <constraint firstItem="tfq-0y-QbD" firstAttribute="leading" secondItem="raj-6O-K5z" secondAttribute="leading" constant="30" id="1yA-MP-lCz"/>
-                            <constraint firstItem="zYE-ig-Ltq" firstAttribute="top" secondItem="1MG-Uc-UtF" secondAttribute="bottom" constant="20" id="8qa-th-66G"/>
                             <constraint firstItem="raj-6O-K5z" firstAttribute="trailing" secondItem="1MG-Uc-UtF" secondAttribute="trailing" constant="50" id="A4W-Bt-c2A"/>
-                            <constraint firstItem="raj-6O-K5z" firstAttribute="trailing" secondItem="zYE-ig-Ltq" secondAttribute="trailing" constant="20" id="LLM-gJ-x6G"/>
-                            <constraint firstItem="zYE-ig-Ltq" firstAttribute="bottom" secondItem="raj-6O-K5z" secondAttribute="bottom" id="Ogt-zf-6yZ"/>
+                            <constraint firstItem="iyL-U0-erH" firstAttribute="top" secondItem="1MG-Uc-UtF" secondAttribute="bottom" constant="10" id="EQA-eV-a0K"/>
                             <constraint firstItem="tfq-0y-QbD" firstAttribute="top" secondItem="raj-6O-K5z" secondAttribute="top" constant="40" id="Yj3-ND-LoO"/>
+                            <constraint firstItem="iyL-U0-erH" firstAttribute="bottom" secondItem="raj-6O-K5z" secondAttribute="bottom" id="eiI-IY-Gri"/>
+                            <constraint firstItem="raj-6O-K5z" firstAttribute="trailing" secondItem="iyL-U0-erH" secondAttribute="trailing" constant="30" id="gL6-lV-DcP"/>
                             <constraint firstItem="raj-6O-K5z" firstAttribute="trailing" secondItem="tfq-0y-QbD" secondAttribute="trailing" constant="30" id="ujB-JI-2qQ"/>
-                            <constraint firstItem="zYE-ig-Ltq" firstAttribute="leading" secondItem="raj-6O-K5z" secondAttribute="leading" constant="20" id="wLg-hu-5fp"/>
                             <constraint firstItem="1MG-Uc-UtF" firstAttribute="top" secondItem="tfq-0y-QbD" secondAttribute="bottom" constant="10" id="xgc-n4-TIV"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="raj-6O-K5z"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="aib-Nh-vWq" appends="YES" id="ClO-jc-06U"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="34v-q5-fkC"/>
                     <connections>
                         <outlet property="progressContainer" destination="1MG-Uc-UtF" id="xg3-YA-f9X"/>
                         <outlet property="progressView" destination="d7m-io-Ch1" id="cB9-6g-o4P"/>
-                        <outlet property="waitingTable" destination="zYE-ig-Ltq" id="wWK-HH-YbZ"/>
+                        <outlet property="waitingCollection" destination="iyL-U0-erH" id="MEy-Qn-oao"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aYY-AY-EKB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="aib-Nh-vWq">
+                    <connections>
+                        <action selector="screenTapped:" destination="FW1-b5-Hvg" id="3dH-Dz-QuN"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-355.07246376811599" y="42.857142857142854"/>
         </scene>
