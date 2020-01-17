@@ -24,6 +24,8 @@ class WaitingLobby1VC: UIViewController, UICollectionViewDelegate, UICollectionV
     override func viewDidLoad() {
         super.viewDidLoad()
         progressContainer.layer.cornerRadius = 5
+        progressContainer.clipsToBounds = true
+        progressView.clipsToBounds = true
         waitingCollection.delegate = self
         waitingCollection.dataSource = self
         waitingCollection.register(UINib(nibName: "WaitingCell", bundle: nil), forCellWithReuseIdentifier: "WaitingCell")
@@ -62,8 +64,12 @@ class WaitingLobby1VC: UIViewController, UICollectionViewDelegate, UICollectionV
         let myNSIndexPath = [NSIndexPath(row: row, section: 0)]
         self.waitingCollection.deleteItems(at: myNSIndexPath as [IndexPath])
         
-        let progress: Float = Float((numberOfPeople - waitingList.count)/numberOfPeople)
-        print("Progess: \(progress)")
+        let peopleRemaining = Float(self.waitingList.count)
+        let peopleFinished = Float(numberOfPeople) - peopleRemaining
+        let total = Float(numberOfPeople)
+        print("People finished: \(peopleFinished)")
+        let progress: Float = peopleFinished/total
+        print("Progress: \(progress)")
            progressView.setProgress(progress, animated: true)
     }
     
@@ -86,8 +92,8 @@ class WaitingLobby1VC: UIViewController, UICollectionViewDelegate, UICollectionV
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = waitingCollection.dequeueReusableCell(withReuseIdentifier: "WaitingCell", for: indexPath) as! WaitingCell
                self.setStructure(for: cell)
-               cell.nameLabel.text = Question().goonz[indexPath.row]
-               return cell
+        cell.nameLabel.text = self.waitingList[indexPath.row]
+        return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

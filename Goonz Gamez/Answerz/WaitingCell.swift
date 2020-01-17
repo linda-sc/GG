@@ -11,11 +11,13 @@ import UIKit
 class WaitingCell: UICollectionViewCell {
 
     @IBOutlet weak var nameLabel: UILabel!
-
+    @IBOutlet weak var pictureView: UIView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        
+        pictureView.layer.cornerRadius = 25
+        pictureView.clipsToBounds = true
     }
     
 }
