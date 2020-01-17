@@ -8,7 +8,7 @@
 
 import UIKit
 
-class WaitingLobby1VC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class WaitingLobbyVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
     @IBOutlet weak var waitingCollection: UICollectionView!
 
@@ -38,17 +38,16 @@ class WaitingLobby1VC: UIViewController, UICollectionViewDelegate, UICollectionV
         
         //Disappearing cells
         let flowLayout = BouncyLayout(style: .prominent)
-        //let flowLayout = CollectionViewFlowLayout()
-        //let flowLayout = BouncyLayout(style: .crazy)
         self.waitingCollection.setCollectionViewLayout(flowLayout, animated: true)
     
-//        //Remove random people
-//        timer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(triggerAction), userInfo: nil, repeats: true)
-        
+        checkIfDone()
     }
     
+    
+    // MARK: - Removing people
     @IBAction func screenTapped(_ sender: Any) {
         triggerAction()
+        checkIfDone()
     }
     
     @objc func triggerAction(){
@@ -81,6 +80,14 @@ class WaitingLobby1VC: UIViewController, UICollectionViewDelegate, UICollectionV
            cell.layer.cornerRadius = 15
     }
     
+    // MARK: - Checking to see if everyone is done
+    func checkIfDone() {
+        if self.waitingList.isEmpty {
+            self.performSegue(withIdentifier: "GoToVoting", sender: self)
+            print("GoToVoting segue triggered.")
+        }
+    }
+    
     
     // MARK: - Collection view data source
     
@@ -101,6 +108,4 @@ class WaitingLobby1VC: UIViewController, UICollectionViewDelegate, UICollectionV
         let height: CGFloat = 40
         return CGSize(width: width, height: height)
         }
-
-    
 }

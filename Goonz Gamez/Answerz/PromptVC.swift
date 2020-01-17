@@ -9,7 +9,7 @@
 import UIKit
 import Foundation
 
-class AnswerzPromptVC: UIViewController, UITextViewDelegate {
+class PromptVC: UIViewController, UITextViewDelegate {
     
     @IBOutlet weak var promptLabel: UILabel!
     @IBOutlet weak var answerTextView: UITextView!
