@@ -41,13 +41,16 @@ class VotingVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
         progressContainer.layer.cornerRadius = 5
         progressContainer.clipsToBounds = true
         progressView.clipsToBounds = true
-        answerCollection.delegate = self
-        answerCollection.dataSource = self
-        answerCollection.register(UINib(nibName: "AnswerCell", bundle: nil), forCellWithReuseIdentifier: "AnswerCell")
         doneButton.layer.cornerRadius = 12
         doneButton.clipsToBounds = true
         doneButton.isHidden = true
         
+        
+        // MARK: - Dynamic collection view protocol
+        
+        answerCollection.delegate = self
+        answerCollection.dataSource = self
+        answerCollection.register(UINib(nibName: "AnswerCell", bundle: nil), forCellWithReuseIdentifier: "AnswerCell")
         
         //Set estimated item size
         if let flow = answerCollection.collectionViewLayout as? UICollectionViewFlowLayout {
@@ -59,9 +62,12 @@ class VotingVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
         let flowLayout = CollectionViewFlowLayout()
         self.answerCollection.setCollectionViewLayout(flowLayout, animated: true)
     
+        // MARK: - Stepwise logic
+        
         //Start showing the answers
         visibleAnswers = []
         generateAnswers()
+        //Disable touches until all the answers are done animating
         self.answerCollection.isUserInteractionEnabled = false
         displayAnswers()
         checkIfDone()
@@ -145,8 +151,7 @@ class VotingVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
     }
     
     
-    
-    // MARK: - Collection view data source
+    // MARK: - Collection view protocol
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.visibleAnswers.count
@@ -193,6 +198,7 @@ class VotingVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
         }
     
     // MARK: - Estimate cell height
+    
     func estimateFrameForText(text: String) -> CGRect {
         //we make the height arbitrarily large so we don't undershoot height in calculation
         let height: CGFloat = 1000
@@ -207,6 +213,7 @@ class VotingVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
     }
     
       // MARK: - Handling selection
+    
     func handleSelection(selectedIndex: Int) {
         
         for index in 0...self.answers.count - 1 {
@@ -220,5 +227,10 @@ class VotingVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
             }
         }
     }
+    
+    // MARK: - NETWORK CALLS
+    // MARK: - Given: User, game, turn, phase, and status
+    // MARK: - Action: Submit vote for voting phase
+    // MARK: - Confirmation: Proceed once responses are all submitted
     
 }

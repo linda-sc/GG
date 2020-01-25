@@ -27,7 +27,8 @@ class WaitingLobbyVC: UIViewController, UICollectionViewDelegate, UICollectionVi
         progressContainer.clipsToBounds = true
         progressView.clipsToBounds = true
         
-        // MARK: - Dynamic collectionview protocol
+        // MARK: - Dynamic collection view protocol
+        
         waitingCollection.delegate = self
         waitingCollection.dataSource = self
         waitingCollection.register(UINib(nibName: "WaitingCell", bundle: nil), forCellWithReuseIdentifier: "WaitingCell")
@@ -46,6 +47,7 @@ class WaitingLobbyVC: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     
     // MARK: - Removing people
+    
     @IBAction func screenTapped(_ sender: Any) {
         triggerAction()
         checkIfDone()
@@ -75,6 +77,7 @@ class WaitingLobbyVC: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     
     // MARK: - Checking to see if everyone is done
+    
     func checkIfDone() {
         if self.waitingList.isEmpty {
             self.performSegue(withIdentifier: "GoToVoting", sender: self)
@@ -83,7 +86,7 @@ class WaitingLobbyVC: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     
     
-    // MARK: - Collection view data source
+    // MARK: - Collection view protocol
     
     private func setStructure(for cell: UICollectionViewCell) {
         cell.layer.borderWidth = 20
@@ -109,5 +112,11 @@ class WaitingLobbyVC: UIViewController, UICollectionViewDelegate, UICollectionVi
         let width = view.bounds.width - 60
         let height: CGFloat = 60
         return CGSize(width: width, height: height)
-        }
+    }
+    
+    // MARK: - NETWORK CALLS
+    // MARK: - Given: User, game, turn, and phase, and status
+    // MARK: - Action: Wait for response phase to end
+    // MARK: - Observe: Live updates at response phase
+    // MARK: - Confirmation: Proceed once responses are all submitted
 }

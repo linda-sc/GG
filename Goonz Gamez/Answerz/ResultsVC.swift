@@ -34,10 +34,11 @@ class ResultsVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
         self.nextButton.layer.cornerRadius = 12
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            self.animateResult()
+            self.immediateFirstAnimation()
         }
         
-        // MARK: - Dynamic collectionview protocol
+        // MARK: - Dynamic collection view protocol
+        
         resultsCollection.delegate = self
         resultsCollection.dataSource = self
         resultsCollection.register(UINib(nibName: "WaitingCell", bundle: nil), forCellWithReuseIdentifier: "WaitingCell")
@@ -53,8 +54,9 @@ class ResultsVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
         
     }
 
+    // MARK: - Stepwise logic
     
-    func animateResult() {
+    func immediateFirstAnimation() {
         self.progressBarHeight.constant = 15
         self.waitingLabelHeight.constant = 20
         
@@ -68,7 +70,7 @@ class ResultsVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
         }
     }
     
-    func finishedWaiting(){
+    func finishedWaitingForVotes(){
         
         self.waitingList = Question().goonz
         self.numberOfPeople = Question().goonz.count
@@ -86,10 +88,11 @@ class ResultsVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
     }
     
     @IBAction func nextButtonTapped(_ sender: Any) {
-        finishedWaiting()
+        finishedWaitingForVotes()
     }
     
-    // MARK: - Collection view data source
+    // MARK: - Collection view protocol
+    
     private func setStructure(for cell: UICollectionViewCell) {
         cell.layer.borderWidth = 20
         cell.layer.borderColor = UIColor.clear.cgColor
@@ -115,7 +118,16 @@ class ResultsVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
         let width = view.bounds.width - 60
         let height: CGFloat = 60
         return CGSize(width: width, height: height)
-        }
+    }
+    
+    // MARK: - NETWORK CALLS
+    // MARK: - Given: User, game, turn, phase, and status
+    // MARK: - Action: Wait for voting phase to end
+    // MARK: - Observe: Live updates at voting phase
+    // MARK: - Update: Reload table when votes are all cast
+    // MARK: - Update: Response phase of next round technically begins
+    // MARK: - Optional Action: Proceed when you are done viewing results
+    // MARK: - Confirmation: None. (Maybe option to quit here)
     
 }
 

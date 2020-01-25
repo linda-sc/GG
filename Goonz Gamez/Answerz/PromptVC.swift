@@ -39,7 +39,7 @@ class PromptVC: UIViewController, UITextViewDelegate {
         
     }
     
-    // MARK: - TextView Delegate Protocol
+    // MARK: - TextView Protocol
     func textViewDidBeginEditing(_ textView: UITextView) {
         //If there is placeholder text, then make the bio empty. Otherwise don't.
         if answerTextView.text == "Type your answer here" {
@@ -85,7 +85,6 @@ class PromptVC: UIViewController, UITextViewDelegate {
     }
     
     
-    
     func isValidAnswer(answer: String) -> Bool {
         var valid = true
         let rawAnswer = answer.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -99,5 +98,12 @@ class PromptVC: UIViewController, UITextViewDelegate {
         print("Answer is valid? \(valid)")
         return valid
     }
-
+    
+    // MARK: - NETWORK CALLS
+    // MARK: - Given: User, game, turn, and phase
+    // MARK: - Action: Submit response to response phase
+    // MARK: - Confirmation: Proceed once response is submitted
+    
 }
+
+
