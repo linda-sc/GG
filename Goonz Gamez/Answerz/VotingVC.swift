@@ -21,15 +21,15 @@ class VotingVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
     "daniel, but not for the ride",
     "positions other than missionary",
     "blockchain",
-    "his secret fantasy of a threesome with daniel and spencer except he's only watching",
+    "his secret fantasy involving daniel and spencer except he's only watching",
     "bagel holes",
-    "bullshit about being a CEO and World Class Fencer, which works incredibly well on insecure small Asian girls",
-    "(1) condoms for harvard men that she isn't going to use, (2) a machine learning textbook that she isn't going to read, (3) her iPhone with Hinge, Bumble, and Tinder on it.",
-    "Adderall, fuccbois, and hair growth pills",
-    "Condoms, plan B, and then probably a scale so she can check her weight when she feel insecure about a guy not responding.",
+    "bullshit about being a CEO and World Class Fencer, which works incredibly well on insecure girls",
+    "(1) protection that she isn't going to use, (2) a machine learning textbook that she isn't going to read, (3) her iPhone with Hinge, Bumble, and Tinder on it.",
+    "Adderall and hair growth pills",
+    "Korean food, plan B, and then probably a scale so she can check her weight when she feels insecure about a guy not responding.",
     "A Harvard deferral letter",
-    "His mother's pyramid scheme involving vitamins and Melissa",
-    "Report her family to ICE to avoid paying child support",
+    "A pyramid scheme involving vitamins and Melissa",
+    "Not paying child support",
     "colonize"
     ]
     
