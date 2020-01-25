@@ -32,7 +32,8 @@ class VotingVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
     "colonize"
     ]
     
-    var visibleAnswers: [String] = []
+    var answers: [Answer] = []
+    var visibleAnswers: [Answer] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,11 +57,24 @@ class VotingVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
     
         //Start showing the answers
         visibleAnswers = []
+        generateAnswers()
         self.answerCollection.isUserInteractionEnabled = false
         displayAnswers()
         checkIfDone()
     }
     
+    
+    func generateAnswers() {
+        for i in 0...sampleAnswers.count - 1 {
+            let answerObject = Answer()
+            answerObject.uid = ""
+            answerObject.text = sampleAnswers[i]
+            answerObject.index = i
+            
+            self.answers.append(answerObject)
+        }
+        
+    }
 
     
     // MARK: - Displaying answers
@@ -75,10 +89,11 @@ class VotingVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
         self.triggerAction()
          //Repeating delays must be done recursively like this.
         delayWithSeconds(0.7) {
-            if self.visibleAnswers.count < self.sampleAnswers.count {
+            if self.visibleAnswers.count < self.answers.count {
                 self.displayAnswers()
             } else {
                 //Once the answers are out, allow the user to select.
+                print("Done.")
                 self.answerCollection.isUserInteractionEnabled = true
             }
         }
@@ -91,7 +106,7 @@ class VotingVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
     
     @objc func triggerAction(){
            print("Displaying next answer")
-        if self.visibleAnswers.count < self.sampleAnswers.count {
+        if self.visibleAnswers.count < self.answers.count {
             let next = self.sampleAnswers.count - self.visibleAnswers.count - 1
                self.displayNextAnswer(index: next)
            }
@@ -99,7 +114,7 @@ class VotingVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
 
    func displayNextAnswer(index: Int) {
         print("Displaying answer \(index)")
-        let nextAnswer = self.sampleAnswers[index]
+        let nextAnswer = self.answers[index]
         self.visibleAnswers.insert(nextAnswer, at: 0)
         let myNSIndexPath = [NSIndexPath(row: 0, section: 0)]
         self.answerCollection.insertItems(at: myNSIndexPath as [IndexPath])
@@ -130,13 +145,17 @@ class VotingVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = answerCollection.dequeueReusableCell(withReuseIdentifier: "AnswerCell", for: indexPath) as! AnswerCell
                self.setStructure(for: cell)
-        cell.answerLabel.text = self.visibleAnswers[indexPath.row]
+        //Set cell properties
+        cell.answerLabel.text = self.visibleAnswers[indexPath.row].text
+        cell.index = self.visibleAnswers[indexPath.row].index
+        print("cell.index = \(cell.index!)")
+        cell.parentVC = self
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = view.bounds.width - 60
-        let text = self.visibleAnswers[indexPath.row]
+        let text = self.visibleAnswers[indexPath.row].text
         let height: CGFloat = estimateFrameForText(text: text).height + 20
         print("Rendering cell with height \(height)")
         return CGSize(width: width, height: height)
@@ -157,11 +176,18 @@ class VotingVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
     }
     
       // MARK: - Handling selection
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.selectedIndex = indexPath.row
+    func handleSelection(selectedIndex: Int) {
+        
+        for index in 0...self.visibleAnswers.count {
+            //Deselect everything else
+            if index != selectedIndex {
+                let indexPath = IndexPath(row: index, section: 0)
+                
+                if let cell = answerCollection.cellForItem(at: indexPath) as? AnswerCell {
+                   cell.automaticDeselect()
+                }
+            }
+        }
     }
     
-    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        self.selectedIndex = -1
-    }
 }

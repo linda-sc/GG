@@ -43,7 +43,7 @@
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fHp-zJ-TMc">
                                 <rect key="frame" x="30" y="317" width="354" height="60"/>
-                                <color key="backgroundColor" red="0.54820233039999999" green="0.54555531930000001" blue="0.91828600890000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.5490196078431373" green="0.54509803921568623" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="Gs3-fJ-otu"/>
                                 </constraints>
