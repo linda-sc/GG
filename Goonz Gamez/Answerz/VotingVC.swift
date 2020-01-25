@@ -13,6 +13,7 @@ class VotingVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
     @IBOutlet weak var answerCollection: UICollectionView!
     @IBOutlet weak var progressContainer: UIView!
     @IBOutlet weak var progressView: UIProgressView!
+    @IBOutlet weak var doneButton: UIButton!
     
     var selectedIndex: Int = -1
     
@@ -25,7 +26,7 @@ class VotingVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
     "bullshit about being a CEO and World Class Fencer, which works incredibly well on insecure small Asian girls",
     "(1) condoms for harvard men that she isn't going to use, (2) a machine learning textbook that she isn't going to read, (3) her iPhone with Hinge, Bumble, and Tinder on it.",
     "Adderall, fuccbois, and hair growth pills",
-    "Condoms, plan B, and then probably a scale fo she can check her weight when she feel insecure about a guy not responding.",
+    "Condoms, plan B, and then probably a scale so she can check her weight when she feel insecure about a guy not responding.",
     "A Harvard deferral letter",
     "His mother's pyramid scheme involving vitamins and Melissa",
     "Report her family to ICE to avoid paying child support",
@@ -43,6 +44,9 @@ class VotingVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
         answerCollection.delegate = self
         answerCollection.dataSource = self
         answerCollection.register(UINib(nibName: "AnswerCell", bundle: nil), forCellWithReuseIdentifier: "AnswerCell")
+        doneButton.layer.cornerRadius = 12
+        doneButton.clipsToBounds = true
+        doneButton.isHidden = true
         
         
         //Set estimated item size
@@ -128,12 +132,18 @@ class VotingVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
     }
     
     // MARK: - Checking to see if everyone is done
+    
+    @IBAction func doneButtonTapped(_ sender: Any) {
+        checkIfDone()
+    }
+    
     func checkIfDone() {
-        if false {
-            self.performSegue(withIdentifier: "GoToVoting", sender: self)
-            print("GoToVoting segue triggered.")
+        if selectedIndex != -1 {
+            //self.performSegue(withIdentifier: "GoToVoting", sender: self)
+            print("GoToResults segue triggered.")
         }
     }
+    
     
     
     // MARK: - Collection view data source
@@ -145,12 +155,33 @@ class VotingVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = answerCollection.dequeueReusableCell(withReuseIdentifier: "AnswerCell", for: indexPath) as! AnswerCell
                self.setStructure(for: cell)
+        
         //Set cell properties
         cell.answerLabel.text = self.visibleAnswers[indexPath.row].text
         cell.index = self.visibleAnswers[indexPath.row].index
-        print("cell.index = \(cell.index!)")
+        //print("cell.index = \(cell.index!)")
         cell.parentVC = self
+        
+        if self.selectedIndex == cell.index {
+            cell.isSelected = true
+            cell.background.backgroundColor = Constants.colors.ghostViolet
+        } else {
+            cell.isSelected = false
+            cell.background.backgroundColor = UIColor.black
+        }
+        
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        let answerCell = cell as! AnswerCell
+        if self.selectedIndex == answerCell.index {
+                   answerCell.isSelected = true
+                   answerCell.background.backgroundColor = Constants.colors.ghostViolet
+               } else {
+                   answerCell.isSelected = false
+                   answerCell.background.backgroundColor = UIColor.black
+               }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -178,14 +209,14 @@ class VotingVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
       // MARK: - Handling selection
     func handleSelection(selectedIndex: Int) {
         
-        for index in 0...self.visibleAnswers.count {
+        for index in 0...self.answers.count - 1 {
             //Deselect everything else
             if index != selectedIndex {
                 let indexPath = IndexPath(row: index, section: 0)
                 
                 if let cell = answerCollection.cellForItem(at: indexPath) as? AnswerCell {
                    cell.automaticDeselect()
-                }
+                } 
             }
         }
     }

@@ -25,6 +25,7 @@
 		BF4F38FC23D2353600C77AE6 /* AnswerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF4F38FB23D2353600C77AE6 /* AnswerCell.xib */; };
 		BF4F38FE23D2354800C77AE6 /* AnswerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4F38FD23D2354800C77AE6 /* AnswerCell.swift */; };
 		BF4F390023DCACEB00C77AE6 /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4F38FF23DCACEB00C77AE6 /* Answer.swift */; };
+		BF4F390223DCB07E00C77AE6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4F390123DCB07E00C77AE6 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		BF4F38FB23D2353600C77AE6 /* AnswerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AnswerCell.xib; sourceTree = "<group>"; };
 		BF4F38FD23D2354800C77AE6 /* AnswerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswerCell.swift; sourceTree = "<group>"; };
 		BF4F38FF23DCACEB00C77AE6 /* Answer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
+		BF4F390123DCB07E00C77AE6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 				BF0AC63623D0DA2500842E0C /* ViewController.swift */,
 				BF0AC63823D0DA2500842E0C /* Main.storyboard */,
 				BF4F38F523D150CD00C77AE6 /* Extensions.swift */,
+				BF4F390123DCB07E00C77AE6 /* Constants.swift */,
 				BF0AC64E23D1187500842E0C /* Answerz */,
 				BF0AC63B23D0DA2900842E0C /* Assets.xcassets */,
 				BF0AC63D23D0DA2900842E0C /* LaunchScreen.storyboard */,
@@ -192,6 +195,7 @@
 				BF4F38FE23D2354800C77AE6 /* AnswerCell.swift in Sources */,
 				BF0AC63323D0DA2500842E0C /* AppDelegate.swift in Sources */,
 				BF4F38F623D150CD00C77AE6 /* Extensions.swift in Sources */,
+				BF4F390223DCB07E00C77AE6 /* Constants.swift in Sources */,
 				BF0AC63523D0DA2500842E0C /* SceneDelegate.swift in Sources */,
 				BF4F38F223D12F3600C77AE6 /* Question.swift in Sources */,
 				BF0AC64D23D114D900842E0C /* PromptVC.swift in Sources */,

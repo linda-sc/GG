@@ -12,5 +12,6 @@ class Answer {
     var uid: String = ""
     var text: String = ""
     var index: Int = -1
+    var name: String = ""
 }
 
