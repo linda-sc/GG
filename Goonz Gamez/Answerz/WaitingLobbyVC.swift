@@ -26,10 +26,11 @@ class WaitingLobbyVC: UIViewController, UICollectionViewDelegate, UICollectionVi
         progressContainer.layer.cornerRadius = 5
         progressContainer.clipsToBounds = true
         progressView.clipsToBounds = true
+        
+        // MARK: - Dynamic collectionview protocol
         waitingCollection.delegate = self
         waitingCollection.dataSource = self
         waitingCollection.register(UINib(nibName: "WaitingCell", bundle: nil), forCellWithReuseIdentifier: "WaitingCell")
-        
         
         //Set estimated item size
         if let flow = waitingCollection.collectionViewLayout as? UICollectionViewFlowLayout {
@@ -72,14 +73,6 @@ class WaitingLobbyVC: UIViewController, UICollectionViewDelegate, UICollectionVi
            progressView.setProgress(progress, animated: true)
     }
     
-
-       
-    private func setStructure(for cell: UICollectionViewCell) {
-        cell.layer.borderWidth = 20
-        cell.layer.borderColor = UIColor.clear.cgColor
-        cell.layer.cornerRadius = 15
-        cell.clipsToBounds = true
-    }
     
     // MARK: - Checking to see if everyone is done
     func checkIfDone() {
@@ -92,6 +85,13 @@ class WaitingLobbyVC: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     // MARK: - Collection view data source
     
+    private func setStructure(for cell: UICollectionViewCell) {
+        cell.layer.borderWidth = 20
+        cell.layer.borderColor = UIColor.clear.cgColor
+        cell.layer.cornerRadius = 15
+        cell.clipsToBounds = true
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.waitingList.count
 
@@ -101,6 +101,7 @@ class WaitingLobbyVC: UIViewController, UICollectionViewDelegate, UICollectionVi
         let cell = waitingCollection.dequeueReusableCell(withReuseIdentifier: "WaitingCell", for: indexPath) as! WaitingCell
                self.setStructure(for: cell)
         cell.nameLabel.text = self.waitingList[indexPath.row]
+        cell.scoreLabel.text = ""
         return cell
     }
     

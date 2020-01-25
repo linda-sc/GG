@@ -139,7 +139,7 @@ class VotingVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
     
     func checkIfDone() {
         if selectedIndex != -1 {
-            //self.performSegue(withIdentifier: "GoToVoting", sender: self)
+            self.performSegue(withIdentifier: "GoToResults", sender: self)
             print("GoToResults segue triggered.")
         }
     }

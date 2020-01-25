@@ -12,6 +12,7 @@ class WaitingCell: UICollectionViewCell {
 
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var pictureView: UIView!
+    @IBOutlet weak var scoreLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
